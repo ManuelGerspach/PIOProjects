@@ -1,18 +1,39 @@
+node_ID = "r:0:c" # can be copied in PIO solver if you right click on the board in the viewer
+
 def algorythm(connection):
 
     solution_path = r"C:\Users\Manuel\Desktop\PIOProjects\TestData\7d6h2h.cfr"
 
+
     # load the tree
     output = connection.command(line=f"load_tree {solution_path}")
     print_lines(output)
-    print_lines("Hello")
 
+    handorder = connection.command("show_hand_order")
+    print_lines(handorder)
 
     # read 1. category hands
+    readCat(connection, "Set")
         # for each category find out frequency of bet
             # safe frequency in vairable and increase counter of all combos for this category
                 # safe frequency
                     # print or/and safe average frequency for this single board
+
+
+def readCat(connection, cat):
+    ## categories:
+    # nothing 0, king_high 1, ace_high 2, low_pair 3, 3rd-pair 4, 2nd-pair 5, underpair 6,  top_pair 7, top_pair_tp8, overpair 9, two_pair 10, trips 11, set 12,  straight 13,  flush 14, fullhouse 15, top_fullhouse 16,  quads 17,  straight_flush19, 
+    # no_draw 0,  4out_straight_draw 1, 8out_straight_draw 2,  flush_draw 3,  combo_draw 4
+    
+    cats = connection.command("show_categories 7d6h2h")
+    madeHands = cats[0].split(" ")
+    
+    i = 0
+    for combo in madeHands:
+        if combo == "12":
+            i = i + 1
+    # return cats
+
     # TBD: erst eine category über alle boards oder alle categorien über ein board
     # TBD: average über alle boards rechnen, nicht nur über ein board (nicht average frequencies zusammen rechnen, sondern average über alle boards bauen)
 
@@ -22,7 +43,7 @@ def algorythm(connection):
 
     # repeat for all files in folder
 
-    # 
+    
 
 
 
