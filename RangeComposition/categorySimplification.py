@@ -4,6 +4,15 @@ node_ID = "r:0:c" # can be copied in PIO solver if you right click on the board 
 position = "IP" # IP or OOP
 
 
+
+
+
+### TODO
+# Made und unmade hände unterscheiden/kombinieren
+# über mehrere sims in selbem folder iterieren
+# ergebnisse über mehrere sims zusammenfassen
+
+
 ### restrictions: weight of combos not reflected in frequencies!
 
 def algorythm(connection):
@@ -20,7 +29,6 @@ def algorythm(connection):
     # getFrequencies of a hand class and print the average of them
     frequencies = getFrequenciesOfClass(connection, "4")
     print(getAverage(frequencies))
-
 
 def readBetFrequency(connetion, index):
     strat = connetion.command("show_strategy " + node_ID)
@@ -56,7 +64,6 @@ def getAverage(listOfFrequencies):
     avg = round(avg, 2)
     return avg
 
-
 def isComboInRange(connection, index):
     range = connection.command("show_range " + position + " " + node_ID)
     rangeList = range[0].split(" ")
@@ -64,8 +71,6 @@ def isComboInRange(connection, index):
         return False
     else:
         return True
-
-
 
 def print_lines(lines):
     for line in lines:
