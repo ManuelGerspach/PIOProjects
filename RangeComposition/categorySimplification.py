@@ -10,7 +10,7 @@ def algorythm(connection):
     print_lines(output)
 
     # read 1. category hands
-    readCat(connection, "0")
+    readCat(connection, "12")
         # for each category find out frequency of bet
             # safe frequency in vairable and increase counter of all combos for this category
                 # safe frequency
@@ -31,7 +31,7 @@ def readBetFrequency(connetion, index):
     bettingStrat = strat[0].split(" ")
     comboFrequency = bettingStrat[index]
     return comboFrequency
-### TBD!!! filter out combos that are not in range!!!!!!!!!!
+### TBD!!! filter out combos that are not in range!!!!!!!!!! (eventuell, bei sets geht es, muss noch schauen wie es funktioniert ektuell)
 
 def readCat(connection, catNumer):
     ## categories:
