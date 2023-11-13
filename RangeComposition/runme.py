@@ -26,6 +26,7 @@ def main():
 
 
     # we have to explicitely close the solver process
+    print("-----------------------------------------------------")
     print("Closing connection:")
     connection.exit()
     print("Connection closed.")

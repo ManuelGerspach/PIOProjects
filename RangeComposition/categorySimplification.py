@@ -15,6 +15,8 @@ def algorythm(connection):
     output = connection.command(line=f"load_tree {solution_path}")
     print_lines(output)
 
+    print("-----------------------------------------------------")
+
     # getFrequencies of a hand class and print the average of them
     frequencies = getFrequenciesOfClass(connection, "4")
     print(getAverage(frequencies))
